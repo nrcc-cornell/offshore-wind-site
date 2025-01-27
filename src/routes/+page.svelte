@@ -1,4 +1,13 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script lang="ts">
+  import {
+    RegionalMap
+  } from '$lib/components';
+  import { regions } from "$lib/constants";
+  import type { Regions } from "$lib/constants";
 
-<p>Deployment is successful</p>
+  let selectedRegion: Regions|null = $state(null);
+</script>
+
+<div class="w-full max-w-[1500px] mx-auto flex flex-wrap justify-around items-center box-border p-4">
+  <RegionalMap bind:selectedFeature={selectedRegion} {regions} />
+</div>
