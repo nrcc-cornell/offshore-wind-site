@@ -1,0 +1,147 @@
+{
+  "result": {
+    "total": 34,
+    "includes_container_logs": true,
+    "data": [
+      {
+        "ts": "2025-01-28T17:57:34.383487Z",
+        "line": "Cloning repository..."
+      },
+      {
+        "ts": "2025-01-28T17:57:35.051024Z",
+        "line": "From https://github.com/nrcc-cornell/offshore-wind-site"
+      },
+      {
+        "ts": "2025-01-28T17:57:35.051465Z",
+        "line": " * branch            1c2858189e02d1837b06d32a8e3ed3a8a68f491b -\u003e FETCH_HEAD"
+      },
+      {
+        "ts": "2025-01-28T17:57:35.051558Z",
+        "line": ""
+      },
+      {
+        "ts": "2025-01-28T17:57:35.07579Z",
+        "line": "HEAD is now at 1c28581 testing cf pages"
+      },
+      {
+        "ts": "2025-01-28T17:57:35.076124Z",
+        "line": ""
+      },
+      {
+        "ts": "2025-01-28T17:57:35.152428Z",
+        "line": ""
+      },
+      {
+        "ts": "2025-01-28T17:57:35.15291Z",
+        "line": "Using v2 root directory strategy"
+      },
+      {
+        "ts": "2025-01-28T17:57:35.174314Z",
+        "line": "Success: Finished cloning repository files"
+      },
+      {
+        "ts": "2025-01-28T17:57:36.656519Z",
+        "line": "Checking for configuration in a Wrangler configuration file (BETA)"
+      },
+      {
+        "ts": "2025-01-28T17:57:36.657634Z",
+        "line": ""
+      },
+      {
+        "ts": "2025-01-28T17:57:36.658539Z",
+        "line": "Found wrangler.toml file. Reading build configuration..."
+      },
+      {
+        "ts": "2025-01-28T17:57:36.664098Z",
+        "line": "pages_build_output_dir: .svelte-kit/cloudflare"
+      },
+      {
+        "ts": "2025-01-28T17:57:36.66429Z",
+        "line": "Build environment variables: (none found)"
+      },
+      {
+        "ts": "2025-01-28T17:57:36.77494Z",
+        "line": "Successfully read wrangler.toml file."
+      },
+      {
+        "ts": "2025-01-28T17:57:36.849366Z",
+        "line": "No build output detected to cache. Skipping."
+      },
+      {
+        "ts": "2025-01-28T17:57:36.849862Z",
+        "line": "No dependencies detected to cache. Skipping."
+      },
+      {
+        "ts": "2025-01-28T17:57:36.919226Z",
+        "line": "Detected the following tools from environment: npm@9.6.7, nodejs@18.17.1"
+      },
+      {
+        "ts": "2025-01-28T17:57:36.91994Z",
+        "line": "Installing project dependencies: npm install --progress=false"
+      },
+      {
+        "ts": "2025-01-28T17:57:50.895633Z",
+        "line": "npm ERR! code EBADENGINE"
+      },
+      {
+        "ts": "2025-01-28T17:57:50.897397Z",
+        "line": "npm ERR! engine Unsupported engine"
+      },
+      {
+        "ts": "2025-01-28T17:57:50.897615Z",
+        "line": "npm ERR! engine Not compatible with your version of node/npm: @eslint/compat@1.2.5"
+      },
+      {
+        "ts": "2025-01-28T17:57:50.89777Z",
+        "line": "npm ERR! notsup Not compatible with your version of node/npm: @eslint/compat@1.2.5"
+      },
+      {
+        "ts": "2025-01-28T17:57:50.897896Z",
+        "line": "npm ERR! notsup Required: {\"node\":\"^18.18.0 || ^20.9.0 || \u003e=21.1.0\"}"
+      },
+      {
+        "ts": "2025-01-28T17:57:50.898036Z",
+        "line": "npm ERR! notsup Actual:   {\"npm\":\"9.6.7\",\"node\":\"v18.17.1\"}"
+      },
+      {
+        "ts": "2025-01-28T17:57:50.899333Z",
+        "line": ""
+      },
+      {
+        "ts": "2025-01-28T17:57:50.89955Z",
+        "line": "npm ERR! A complete log of this run can be found in: /opt/buildhome/.npm/_logs/2025-01-28T17_57_37_592Z-debug-0.log"
+      },
+      {
+        "ts": "2025-01-28T17:57:50.938528Z",
+        "line": "Error: Exit with error code: 1"
+      },
+      {
+        "ts": "2025-01-28T17:57:50.938865Z",
+        "line": "    at ChildProcess.\u003canonymous\u003e (/snapshot/dist/run-build.js)"
+      },
+      {
+        "ts": "2025-01-28T17:57:50.939138Z",
+        "line": "    at Object.onceWrapper (node:events:652:26)"
+      },
+      {
+        "ts": "2025-01-28T17:57:50.939445Z",
+        "line": "    at ChildProcess.emit (node:events:537:28)"
+      },
+      {
+        "ts": "2025-01-28T17:57:50.939757Z",
+        "line": "    at ChildProcess._handle.onexit (node:internal/child_process:291:12)"
+      },
+      {
+        "ts": "2025-01-28T17:57:50.94954Z",
+        "line": "Failed: build command exited with code: 1"
+      },
+      {
+        "ts": "2025-01-28T17:57:51.719265Z",
+        "line": "Failed: error occurred while running build command"
+      }
+    ]
+  },
+  "success": true,
+  "errors": [],
+  "messages": []
+}
