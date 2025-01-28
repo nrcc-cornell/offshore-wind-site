@@ -25,14 +25,15 @@
 	let evt: CustomEvent<any>|undefined = $state(undefined);
 
 	// Data definitions
-	const statesGeoJson = feature(topoJsonData, topoJsonData.objects.states);
-	const nationGeoJson = feature(topoJsonData, topoJsonData.objects.nation);
+	const statesGeoJson = feature(topoJsonData, topoJsonData.objects['us_states']);
+	const oceanRegionsGeoJson = feature(topoJsonData, topoJsonData.objects['ocean_regions']);
+	const regionsOutlineGeoJson = feature(topoJsonData, topoJsonData.objects['ocean_regions_outline']);
 	const projection = geoIdentity;
 
 	// Flat array of data that is mandatory for layercake
 	let flatData: any[] = $state([]);
-	if ('features' in statesGeoJson) {
-		flatData = statesGeoJson.features.map(d => d.properties);
+	if ('features'  in oceanRegionsGeoJson) {
+		flatData = oceanRegionsGeoJson.features.map(d => d.properties);
 	}
 	
 	// Color and region names that will be used to color the state polygons
@@ -46,40 +47,50 @@
 
 <div class="map-container">
 	<LayerCake
-		data={statesGeoJson}
+		data={oceanRegionsGeoJson}
 		z='region'
 		zScale={scaleOrdinal(regionNames, colors)}
 		zDomain={regionNames}
 		zRange={colors}
+		padding={ { top: 20, right: 0, bottom: 20, left: 30 } }
 		{flatData}
 	>
-		<!-- Layer for shadow, nation polygon -->
+		<!-- Layer for ocean regions border shadow -->
 		<Svg>
 			<MapSvg
 				{projection}
-				features={'features' in nationGeoJson ? nationGeoJson.features : undefined}
-				fill='#00000000'
+				features={'features' in regionsOutlineGeoJson ? regionsOutlineGeoJson.features : undefined}
 				shadow={true}
+				fill='#00000000'
 			/>
-		</Svg>	
+		</Svg>
+
+		<!-- Layer for state polygons -->
+		<Svg>
+			<MapSvg
+				{projection}
+				features={'features' in statesGeoJson ? statesGeoJson.features : undefined}
+				fill='#d6d6d6'
+			/>
+		</Svg>
 	
-		<!-- Colored layered, state polygons -->
+		<!-- Colored layered, ocean region polygons -->
 		<Svg>
 			<MapSvg {projection} />
 		</Svg>
 		
-		<!-- Mouse interaction layer, region polygons -->
-		<!-- <Svg>
+		<!-- Mouse interaction layer, ocean region polygons -->
+		<Svg>
 			<MapSvg
 				{projection}
-				features={'features' in regionPolysGeoJson ? regionPolysGeoJson.features : undefined}
+				features={'features' in oceanRegionsGeoJson ? oceanRegionsGeoJson.features : undefined}
 				bind:selectedFeature
 				fill='#00000000'
 				on:mousemove={event => {
 					evt = event;
 				}}
 			/>
-		</Svg> -->
+		</Svg>
 
 		<!-- Region Labels -->
 		<Html pointerEvents={false}>
@@ -98,5 +109,8 @@
 		width: 600px;
 		min-width: 600px;
 		height: 400px;
+		overflow: hidden;
+		border: 1px solid rgb(100,100,100);
+		border-radius: 5px;
 	}
 </style>

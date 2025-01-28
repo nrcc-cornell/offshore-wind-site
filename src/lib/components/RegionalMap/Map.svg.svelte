@@ -7,11 +7,12 @@
 
 	interface MapProps {
 		projection: Function;
+		reflectY?: Boolean;
 		fixedAspectRatio?: number;
 		fill?: string;
 		stroke?: string;
 		strokeWidth?: number;
-		features?: Array<any>;
+		features?: Array<any>|null;
 		selectedFeature?: any;
 		shadow?: boolean
 	}
@@ -19,11 +20,12 @@
 	const dispatch = createEventDispatcher();
 	const { data, width, height, zGet } = getContext('LayerCake') as {data: any, width: any, height: any, zGet: any};
 
-	let { projection, fixedAspectRatio, fill, stroke = '#333', strokeWidth = 0.5, features, selectedFeature = $bindable(null), shadow=false }: MapProps = $props();
+	let { projection, reflectY = true, fixedAspectRatio, fill, stroke = '#333', strokeWidth = 0.5, features, selectedFeature = $bindable(null), shadow=false }: MapProps = $props();
 
 	let fitSizeRange = $derived(fixedAspectRatio ? [100, 100 / fixedAspectRatio] : [$width, $height]);
 
 	let projectionFn = $derived(projection()
+		.reflectY(reflectY)
 		.fitSize(fitSizeRange, $data));
 
 	let geoPathFn = $derived(geoPath(projectionFn));
@@ -64,7 +66,7 @@ tabindex=0
 			style="stroke:rgb(255, 115, 0); stroke-width:2" />
 </pattern>
 	{#each (features || $data.features) as feature}
-	<path
+		<path
 			class={(selectedFeature === feature.properties.region ? "selected-feature" : "feature-path") + (shadow ? ' shadow' : '')}
 			fill={selectedFeature === feature.properties.region ? "url(#diagonalHatch)" : fill || $zGet(feature.properties)}
 			stroke={stroke}

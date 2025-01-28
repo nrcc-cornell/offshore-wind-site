@@ -48,14 +48,16 @@
     position: relative;
   }
   :global(.map-label) {
-    max-width: 180px;
+    max-width: 80px;
     position: absolute;
     text-align: center;
-    font-size: 16px;
+    font-size: 13px;
     font-weight: bold;
-    text-shadow: 1px 1px 2px #333;
     color: white;
     margin-top: -3px;
     transform: translate(-50%, -50%);
+    background-color: rgb(120,120,120);
+    padding: 6px;
+    border-radius: 5px;
   }
 </style>
