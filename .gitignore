@@ -24,3 +24,6 @@ vite.config.ts.timestamp-*
 
 cf_project_deployment.sh
 x.txt
+
+src/routes/api/dev
+static/devData

@@ -26,6 +26,43 @@ export const regions = [
   }
 ] as const;
 
-export type RegionsObj = typeof regions;
-export type Regions = typeof regions[number]['name'];
-export type Colors = typeof regions[number]['color'];
+export const dataType = [{
+  name: 'noaa',
+  displayName: 'NOAA'
+},{
+  name: 'era5',
+  displayName: 'ERA5'
+}] as const;
+export const spatial = [{
+  name: 'quarter',
+  displayName: '≥25%'
+},{
+  name: 'half',
+  displayName: '≥50%'
+}] as const;
+export const windSpeed = [{
+  name: 'near_gale',
+  displayName: 'Near Gale (≥28kts)'
+},{
+  name: 'gale',
+  displayName: 'Gale (≥34kts)'
+},{
+  name: 'storm',
+  displayName: 'Storm (≥48kts)'
+}] as const;
+export const timeFrame = [{
+  name: 'annual',
+  displayName: 'Annual'
+},{
+  name: 'spring',
+  displayName: 'Spring'
+},{
+  name: 'summer',
+  displayName: 'Summer'
+},{
+  name: 'fall',
+  displayName: 'Fall'
+},{
+  name: 'winter',
+  displayName: 'Winter'
+}] as const;

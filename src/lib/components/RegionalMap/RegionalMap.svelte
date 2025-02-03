@@ -12,8 +12,6 @@
 	// Pre-projected topojson data, very small file
 	import topoJsonData from '$lib/topojson/statesAndRegionsTopojson';
 
-	import type { RegionsObj } from '$lib/constants';
-
 	type RegionalMapProps = {
 		selectedFeature: any;
 		regions: RegionsObj;
@@ -107,10 +105,33 @@
 <style>
 	.map-container {
 		width: 600px;
-		min-width: 600px;
 		height: 400px;
 		overflow: hidden;
 		border: 1px solid rgb(100,100,100);
 		border-radius: 5px;
+	}
+
+	@media (max-width: 615px) {
+		.map-container {
+			transform: scale(0.8);
+		}
+	}
+
+	@media (max-width: 510px) {
+		.map-container {
+			transform: scale(0.7);
+		}
+	}
+
+	@media (max-width: 430px) {
+		.map-container {
+			transform: scale(0.6);
+		}
+	}
+
+	@media (max-width: 370px) {
+		.map-container {
+			transform: scale(0.55);
+		}
 	}
 </style>
