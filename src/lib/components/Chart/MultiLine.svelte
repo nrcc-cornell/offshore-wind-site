@@ -17,7 +17,7 @@
 
 <g class="line-group">
   {#each $data as group}
-    <path class="path-line" d={path(group.values)} stroke={$zGet(group)}></path>
+    <path class="path-line" stroke-dasharray="10,3" d={path(group.values)} stroke={$zGet(group)}></path>
   {/each}
 </g>
 
@@ -26,6 +26,6 @@
     fill: none;
     stroke-linejoin: round;
     stroke-linecap: round;
-    stroke-width: 3px;
+    stroke-width: 1px;
   }
 </style>

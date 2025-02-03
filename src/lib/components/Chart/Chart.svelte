@@ -8,6 +8,7 @@
   import SharedTooltip from './SharedTooltip.svelte';
   import Key from './Key.html.svelte';
   import Export from './Export.html.svelte';
+  import ScatterSvg from './Scatter.svg.svelte';
   
   type ChartProps = {
     groupedData: ChartGroupItem[];
@@ -27,7 +28,7 @@
   const zKey = 'group';
   const seriesColors = ['#950B30', '#0085CA'];
 
-  let sharedTooltipData = $derived(groupedData.reduce((acc, groupObj) => {
+  let flatData = $derived(groupedData.reduce((acc, groupObj) => {
     groupObj.values.forEach(({ value, year, group }) => {
       const foundIdx = acc.findIndex((obj: ShareTooltipDataItem) => obj.year === year);
       if (foundIdx === -1) {
@@ -38,6 +39,7 @@
     });
     return acc;
   }, [] as ShareTooltipDataItem[]));
+  $inspect(groupedData);
 </script>
 
 <div class="chart-container">
@@ -65,6 +67,7 @@
         titleGutter={23}
       />
       <MultiLine />
+      <ScatterSvg />
     </Svg>
 
     <Html pointerEvents={false}>
@@ -73,7 +76,7 @@
 
     <Html>
       <Export node={chartId} align='end' gutter={6} data={groupedData} {metadata} />
-      <SharedTooltip dataset={sharedTooltipData} />
+      <SharedTooltip dataset={flatData} />
     </Html>
   </LayerCake>
 </div>

@@ -127,7 +127,7 @@
     stroke: #aaa;
   }
   .tick .gridline {
-    stroke-dasharray: 2;
+    stroke: #e4e4e4;
   }
 
   .tick text {

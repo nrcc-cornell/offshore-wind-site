@@ -14,11 +14,13 @@ function convertDataTypeData(
 
   const timeseries = [];
   for (let i = 0; i < values.length; i++) {
-    timeseries.push({
-      value: values[i],
-      year: startYear + i,
-      group: dataType.displayName
-    });
+    if (values[i] !== null) {
+      timeseries.push({
+        value: values[i],
+        year: startYear + i,
+        group: dataType.displayName
+      });
+    }
   }
   return { group: dataType.displayName, values: timeseries };
 }
