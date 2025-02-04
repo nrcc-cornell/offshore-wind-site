@@ -36,7 +36,7 @@
 
   // Set up state to hold user selections for data filtering
   let selectedRegion: RegionNames|null = $state(null);
-  let selectedWindSpeed: WindSpeedNames = $state(windSpeed[0].name);
+  let selectedWindSpeed: WindSpeedNames = $state(windSpeed[1].name);
   let selectedSpatial: SpatialNames = $state(spatial[0].name);
   let selectedTimeFrame: TimeFrameNames = $state(timeFrame[0].name);
   

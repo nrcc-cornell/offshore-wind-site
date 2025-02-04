@@ -26,7 +26,7 @@
   const xKey = 'year';
   const yKey = 'value';
   const zKey = 'group';
-  const seriesColors = ['#950B30', '#0085CA'];
+  const seriesColors = ['#950B3080', '#0085CA'];
 
   let flatData = $derived(groupedData.reduce((acc, groupObj) => {
     groupObj.values.forEach(({ value, year, group }) => {
