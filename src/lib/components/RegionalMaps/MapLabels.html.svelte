@@ -33,9 +33,9 @@
     <div
       class="map-label"
       style="
-      left: {coords[0]}{units};
-      top: {coords[1]}{units};
-    "
+        left: {coords[0]}{units};
+        top: {coords[1]}{units};
+      "
     >
       {getLabel(d)}
     </div>
@@ -47,17 +47,23 @@
     pointer-events: none;
     position: relative;
   }
-  :global(.map-label) {
+  .map-label {
     max-width: 80px;
     position: absolute;
     text-align: center;
-    font-size: 13px;
-    font-weight: bold;
+    font-size: 11px;
     color: white;
     margin-top: -3px;
     transform: translate(-50%, -50%);
-    background-color: rgb(120,120,120);
-    padding: 6px;
+    background-color: rgb(100,100,100);
+    padding: 3px 5px;
     border-radius: 5px;
   }
+
+  @media (max-width: 768px) {
+		.map-label {
+      font-size: 9px;
+      padding: 2px 4px;
+		}
+	}
 </style>

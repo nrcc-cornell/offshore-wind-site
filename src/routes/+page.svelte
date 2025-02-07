@@ -1,6 +1,6 @@
 <script lang="ts">
   import {
-    RegionalMap,
+    RegionalMaps,
     Options,
     Chart
   } from '$lib/components';
@@ -45,7 +45,7 @@
 </script>
 
 <div class="w-full max-w-[1500px] min-w-[350px] mx-auto flex flex-col gap-4 items-center box-border p-4">
-  <RegionalMap bind:selectedFeature={selectedRegion} {regions} />
+  <RegionalMaps bind:selectedFeature={selectedRegion} {regions} />
 
   {#if selectedRegion}
     {@const timeFrameName = timeFrame.find(tf => tf.name === selectedTimeFrame)?.displayName}
@@ -71,6 +71,10 @@
           timeframe: timeFrameName || '',
         }}
       />
+    </div>
+  {:else}
+    <div class='w-full max-w-[1000px] h-[400px] text-center flex justify-center items-center bg-gray-100 border border-gray-200 rounded-md'>
+      <p class='text-gray-400 italic'>Select an oceanic region to see chart</p>
     </div>
   {/if}
 </div>

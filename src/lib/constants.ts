@@ -1,28 +1,51 @@
 export const regions = [
   {
     name: "Eastern Gulf of Maine",
-    labelLocation: [-64.25, 35.75],
-    color: '#FF4600'
+    labelLocation: [-65.35, 35.55],
+    color: '#FF4600',
+    map: 'north'
   },
   {
     name: "Western Gulf of Maine",
-    labelLocation: [-72, 35.75],
-    color: '#FFEE00'
+    labelLocation: [-72.5, 36.2],
+    color: '#FFEE00',
+    map: 'north'
   },
   {
     name: "Georges Bank",
-    labelLocation: [-65.5, 39.75],
-    color: '#3FFF61'
+    labelLocation: [-66.5, 40.00],
+    color: '#3FFF61',
+    map: 'north'
   },
   {
     name: "Northern Mid-Atlantic Bight",
-    labelLocation: [-70.5, 41.25],
-    color: '#01C9F8'
+    labelLocation: [-70.2, 41.0],
+    color: '#01C9F8',
+    map: 'north'
   },
   {
     name: "Southern Mid-Atlantic Bight",
-    labelLocation: [-73, 43.25],
-    color: '#0B5DC1'
+    labelLocation: [-72.5, 42.95],
+    color: '#0B5DC1',
+    map: 'north'
+  },
+  {
+    name: "Northern South Atlantic",
+    labelLocation: [-83, 25.25],
+    color: '#008000',
+    map: 'south'
+  },
+  {
+    name: "Eastern Florida",
+    labelLocation: [-76, 34.75],
+    color: '#8f1aef',
+    map: 'south'
+  },
+  {
+    name: "Gulf",
+    labelLocation: [-90, 36.25],
+    color: '#c91212',
+    map: 'south'
   }
 ] as const;
 

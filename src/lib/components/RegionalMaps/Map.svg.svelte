@@ -6,6 +6,7 @@
 	import { raise } from 'layercake';
 
 	interface MapProps {
+		nameKey?: string;
 		projection: Function;
 		reflectY?: Boolean;
 		fixedAspectRatio?: number;
@@ -20,7 +21,7 @@
 	const dispatch = createEventDispatcher();
 	const { data, width, height, zGet } = getContext('LayerCake') as {data: any, width: any, height: any, zGet: any};
 
-	let { projection, reflectY = true, fixedAspectRatio, fill, stroke = '#333', strokeWidth = 0.5, features, selectedFeature = $bindable(null), shadow=false }: MapProps = $props();
+	let { nameKey = '', projection, reflectY = true, fixedAspectRatio, fill, stroke = '#333', strokeWidth = 0.5, features, selectedFeature = $bindable(null), shadow=false }: MapProps = $props();
 
 	let fitSizeRange = $derived(fixedAspectRatio ? [100, 100 / fixedAspectRatio] : [$width, $height]);
 
@@ -40,24 +41,24 @@
 	}
 
 	function handleClick(e: MouseEvent, feature: any) {
-		selectedFeature = feature.properties.region;
+		selectedFeature = feature.properties[nameKey];
 	}
 
 	function handleKeyPress(e: KeyboardEvent, feature: any) {
 		e.preventDefault();
 		if (e.key === 'Enter') {
-			selectedFeature = feature.properties.region;
+			selectedFeature = feature.properties[nameKey];
 		}
 	}
 </script>
 
 
 <g
-class="map-group"
-onmouseout={(e) => dispatch('mouseout')}
-onblur={(e) => dispatch('mouseout')}
-role='button'
-tabindex=0
+	class="map-group"
+	onmouseout={(e) => dispatch('mouseout')}
+	onblur={(e) => dispatch('mouseout')}
+	role='button'
+	tabindex=0
 >
 <pattern id="diagonalHatch" patternUnits="userSpaceOnUse" width="12" height="12">
 	<path d="M-1,1 l2,-2
@@ -67,8 +68,8 @@ tabindex=0
 </pattern>
 	{#each (features || $data.features) as feature}
 		<path
-			class={(selectedFeature === feature.properties.region ? "selected-feature" : "feature-path") + (shadow ? ' shadow' : '')}
-			fill={selectedFeature === feature.properties.region ? "url(#diagonalHatch)" : fill || $zGet(feature.properties)}
+			class={(selectedFeature === feature.properties[nameKey] ? "selected-feature" : "feature-path") + (shadow ? ' shadow' : '')}
+			fill={selectedFeature === feature.properties[nameKey] ? "url(#diagonalHatch)" : fill || $zGet(feature.properties)}
 			stroke={stroke}
 			stroke-width={strokeWidth}
 			d="{geoPathFn(feature)}"

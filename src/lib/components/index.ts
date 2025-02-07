@@ -1,11 +1,15 @@
-import RegionalMap from "./RegionalMap/RegionalMap.svelte";
+import RegionalMaps from "./RegionalMaps/RegionalMaps.svelte";
 import Toasts from "./Toasts/Toasts.svelte";
 import Options from "./Options/Options.svelte";
 import Chart from "./Chart/Chart.svelte";
+import Header from "./Header.svelte";
+import Footer from "./Footer.svelte";
 
 export {
-  RegionalMap,
+  RegionalMaps,
   Toasts,
   Options,
-  Chart
+  Chart,
+  Header,
+  Footer
 };

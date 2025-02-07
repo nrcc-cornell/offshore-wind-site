@@ -12,6 +12,12 @@ declare global {
         }
     }
 
+    type RegionObj = {
+        name: string;
+        labelLocation: [number, number];
+        color: string;
+        map: string;
+    };
     type RegionsObj = typeof regions;
     type RegionNames = typeof regions[number]['name'];
     type DataTypeNames = typeof dataType[number]['name'];
