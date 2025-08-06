@@ -1,4 +1,7 @@
 # Offshore Wind Site
+
+In development (Deployed: https://offshore-wind-site.pages.dev/)
+
 Front end for displaying data generated in the "offshore-wind" project (data is hosted in an R2 bucket).
 
 This project has a basic map UI with regional polygons that depict different areas of interest. When a region is selected a chart comes up to display the timeseries data for that region, as well as a few selectors to further filter the data displayed.
