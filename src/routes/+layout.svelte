@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 
-	import { Toasts, Header, Footer } from '$lib/components';
+	import { Toasts, NrccWrapper } from '$lib/components';
 	
 	let { children } = $props();
 
@@ -50,15 +50,17 @@
 </div> -->
 <!-- Dev Stuff ^^^ -->
 
-<Header />
-<main class='flex flex-col relative min-w-80 overflow-hidden'>
+<NrccWrapper>
   <Toasts />
-	{@render children()}
+  {@render children()}
+</NrccWrapper>
+<!-- <Header />
+<main class='flex flex-col relative min-w-80 overflow-hidden'>
 </main>
-<Footer />
+<Footer /> -->
 
-<style>
+<!-- <style>
   main {
     min-height: calc(100vh - 136px);
   }
-</style>
+</style> -->

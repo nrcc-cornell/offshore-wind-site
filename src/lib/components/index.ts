@@ -4,6 +4,7 @@ import Options from "./Options/Options.svelte";
 import Chart from "./Chart/Chart.svelte";
 import Header from "./Header.svelte";
 import Footer from "./Footer.svelte";
+import NrccWrapper from "./nrcc-wrapper/NrccWrapper.svelte";
 
 export {
   RegionalMaps,
@@ -11,5 +12,6 @@ export {
   Options,
   Chart,
   Header,
-  Footer
+  Footer,
+  NrccWrapper
 };
