@@ -23,6 +23,8 @@
 
   let { groupedData, chartId, metadata }: ChartProps = $props();
 
+  console.log(groupedData);
+
   const xKey = 'year';
   const yKey = 'value';
   const zKey = 'group';
@@ -75,10 +77,12 @@
     </Html>
 
     <Html>
-      <Export node={chartId} align='end' gutter={6} data={groupedData} {metadata} />
+      <Export node={chartId} align='end' gutter={15} data={groupedData} {metadata} />
       <SharedTooltip dataset={flatData} />
     </Html>
   </LayerCake>
+
+  <p class='text-gray-600 italic text-sm'>*Gray points indicate more than 10 days worth of missing data in the selected timeframe.</p>
 </div>
 
 <style>

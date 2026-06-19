@@ -23,11 +23,12 @@
 <g class="scatter-group">
   {#each $data as group}
     {#each group.values as d}
+      {console.log(d)}
       <circle
         cx={$xGet(d) + ($xScale.bandwidth ? $xScale.bandwidth() / 2 : 0)}
         cy={$yGet(d) + ($yScale.bandwidth ? $yScale.bandwidth() / 2 : 0)}
         {r}
-        fill={fill || $zGet(group)}
+        fill={fill || (d.isMissing ? '#606060' : $zGet(group))}
         {stroke}
         stroke-width={strokeWidth}
       />

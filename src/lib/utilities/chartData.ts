@@ -9,8 +9,11 @@ function convertDataTypeData(
   selectedTimeFrame: TimeFrameNames
 ): ChartGroupItem {
   const values: number[] = data[dataType.name]['data'][selectedSpatial][selectedWindSpeed][selectedRegion][selectedTimeFrame];
+  const missingDays = data[dataType.name]['missing_days']
   const lastYear = parseInt(data[dataType.name]['end_month'].slice(0,4));
   const startYear = lastYear - (values.length - 1);
+
+  console.log(data);
 
   const timeseries = [];
   for (let i = 0; i < values.length; i++) {
@@ -18,7 +21,8 @@ function convertDataTypeData(
       timeseries.push({
         value: values[i],
         year: startYear + i,
-        group: dataType.displayName
+        group: dataType.displayName,
+        isMissing: missingDays === undefined ? false : missingDays[selectedTimeFrame][startYear + i] >= 10
       });
     }
   }

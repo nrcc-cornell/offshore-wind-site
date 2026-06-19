@@ -17,6 +17,7 @@
 
 <g class="line-group">
   {#each $data as group}
+    {console.log(group)}
     <path class="path-line" stroke-dasharray="10,3" d={path(group.values)} stroke={$zGet(group)}></path>
   {/each}
 </g>

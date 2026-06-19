@@ -38,6 +38,7 @@ declare global {
     type DataTypeNameData = {
         end_month: string;
         data: FileData;
+        missing_days?: Record<TimeFrameNames, { [key: string]: number }>;
         message?: string;
     };
     
